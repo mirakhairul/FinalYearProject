@@ -29,18 +29,18 @@ if (isset($_POST['category_id'])) {
     if (mysqli_query($conn, $delete_category_query)) {
         echo "<script>
                 alert('Category and associated products deleted successfully.');
-                window.location.href = 'categoryPage.php';
+                window.location.href = 'categoryPageStaff.php';
               </script>";
     } else {
         echo "<script>
                 alert('Error deleting record: " . mysqli_error($conn) . "');
-                window.location.href = 'categoryPage.php';
+                window.location.href = 'categoryPageStaff.php';
               </script>";
     }
 } else {
     echo "<script>
             alert('Category ID not provided.');
-            window.location.href = 'categoryPage.php';
+            window.location.href = 'categoryPageStaff.php';
           </script>";
 }
 

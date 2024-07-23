@@ -27,7 +27,7 @@ if (isset($_POST['update_customer'])) {
 
 
     // Redirect back to the viewadmin.php page after adding the user 
-    header("Location: customerPage.php"); 
+    header("Location: customerPageStaff.php"); 
     exit(); 
 }
 ?>
@@ -112,62 +112,37 @@ if (isset($_POST['update_customer'])) {
                 } 
             } 
 
-            .container2nd {
-            margin-left: 280px; /* Adjust this based on the width of your sidebar */
-            padding: 40px;
-            padding-top: 2px;
-            overflow: hidden; /* Hide the scrollbar for the container */
-            position: fixed;
-            }
-
-            .tableStaff {
-            width: 70%; /* Adjust the width as needed */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: auto; /* Adjust height based on the header height */
-            margin-left: 30px;
-            }
-
         </style> 
         </head>
         <body>
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href="logocafe.jpeg" class="logo">
-                            <img src="logocafe.jpeg" alt="">
-                            <span class="nav-item">POS SYSTEM</span>
-                          </a></li>
-                          <li><a href="admin.php">
-                            <span class="nav-item">Dashboard</span>
-                          </a></li>
-                          <li><a href="staffPage.php">
-                              <span class="nav-item">Staffs</span>
-                          </a></li>
-                          <li><a href="customerPage.php">
-                            <span class="nav-item">Reg. Customers</span>
-                          </a></li>
-                          <li><a href="categoryPage.php">
-                            <span class="nav-item">Product Category</span>
-                          </a></li>
-                          <li><a href="productPage.php">
-                            <span class="nav-item">Products</span>
-                          </a></li>
-                          <li><a href="stock.php">
-                                <span class="nav-item">Stock</span>
-                          </a></li>
-                          <li><a href="orderPage.php">
-                            <span class="nav-item">Orders</span>
-                          </a></li>
-                          <li><a href="feedbackReviews.php">
-                                <span class="nav-item">Customer Feedback</span>
-                            </a></li>
-                          <li><a href="salesReport.php">
-                            <span class="nav-item">Sales Report</span>
-                          </a></li>
-                          <li><a href="homeadmin.html" class="logout">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span class="nav-item">Log out</span>
-                          </a></li>
+                      <li><a href="logocafe.jpeg" class="logo">
+                        <img src="logocafe.jpeg" alt="">
+                        <span class="nav-item">POS SYSTEM</span>
+                      </a></li>
+                      <li><a href="staff.php">
+                        <span class="nav-item">Dashboard</span>
+                      </a></li>
+                      <li><a href="customerPageStaff.php">
+                        <span class="nav-item">Reg. Customers</span>
+                      </a></li>
+                      <li><a href="categoryPageStaff.php">
+                        <span class="nav-item">Product Category</span>
+                      </a></li>
+                      <li><a href="productPageStaff.php">
+                        <span class="nav-item">Products</span>
+                      </a></li>
+                      <li><a href="stock.php">
+                        <span class="nav-item">Stock</span>
+                     </a></li>
+                      <li><a href="orderPageStaff.php">
+                        <span class="nav-item">Orders</span>
+                      <li><a href="homeadmin.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                      </a></li>
                     </ul>
                   </nav>
                 </div>
@@ -191,67 +166,68 @@ if (isset($_POST['update_customer'])) {
                     // Check if customer record exists
                     if($customer) {
                 ?>
-
            
                 <div class="tableStaff">
-                    <form class="form-container" method="post" onsubmit="return validateForm()"> 
-                        <label class="form-label" for="name">Customer Name:</label> 
-                        <input class="form-input" type="text" id="customer_name" name="customer_name" value="<?php echo htmlspecialchars($customer['customer_name']); ?>" required> 
+                  <form class="form-container" method="post" onsubmit="return validateForm()"> 
+                      <label class="form-label" for="name">Customer Name:</label> 
+                      <input class="form-input" type="text" id="customer_name" name="customer_name" value="<?php echo htmlspecialchars($customer['customer_name']); ?>" required> 
 
-                        <label class="form-label" for="gender">Customer Gender.:</label> 
-                        <input class="form-input" type="text" id="customer_gender" name="customer_gender" value="<?php echo htmlspecialchars($customer['customer_gender']); ?>" required> 
+                      <label class="form-label" for="gender">Customer Gender.:</label> 
+                      <input class="form-input" type="text" id="customer_gender" name="customer_gender" value="<?php echo htmlspecialchars($customer['customer_gender']); ?>" required> 
 
-                        <label class="form-label" for="phoneno">Customer Phone No.:</label> 
-                        <input class="form-input" type="text" id="customer_phoneno" name="customer_phoneno" value="<?php echo htmlspecialchars($customer['customer_phoneno']); ?>" required> 
+                      <label class="form-label" for="phoneno">Customer Phone No.:</label> 
+                      <input class="form-input" type="text" id="customer_phoneno" name="customer_phoneno" value="<?php echo htmlspecialchars($customer['customer_phoneno']); ?>" required> 
 
-                        <label class="form-label" for="email">Customer Email:</label> 
-                        <input class="form-input" type="email" id="customer_email" name="customer_email" value="<?php echo htmlspecialchars($customer['customer_email']); ?>" required> 
+                      <label class="form-label" for="email">Customer Email:</label> 
+                      <input class="form-input" type="email" id="customer_email" name="customer_email" value="<?php echo htmlspecialchars($customer['customer_email']); ?>" required> 
 
-                        <label class="form-label" for="dob">Customer D.O.B:</label> 
-                        <input class="form-input" type="date" id="customer_dob" name="customer_dob" value="<?php echo htmlspecialchars($customer['customer_dob']); ?>" required> 
+                      <label class="form-label" for="dob">Customer D.O.B:</label> 
+                      <input class="form-input" type="date" id="customer_dob" name="customer_dob" value="<?php echo htmlspecialchars($customer['customer_dob']); ?>" required> 
 
-                        <input type='hidden' name='update' value='<?php echo htmlspecialchars($customer['customer_name']); ?>'>
+                      <input type='hidden' name='update' value='<?php echo htmlspecialchars($customer['customer_name']); ?>'>
 
-                        <center><button class="btn-submit" type="submit" name="update_customer" onclick="togglePopup()"> Update </button>
-                        <a href="customerPage.php" class="btn-close-popup">Close</a></center>
-                    </form> 
-                </div>
-                <?php
-                    } else {
-                        // Display a message indicating staff not found
-                        echo "Customer not found!";
+                      <center><button class="btn-submit" type="submit" name="update_customer" onclick="togglePopup()"> Update </button>
+                      <a href="customerPageStaff.php" class="btn-close-popup">Close</a></center>
+                  </form> 
+              </div>
+
+              <?php
+                  } else {
+                      // Display a message indicating staff not found
+                      echo "Customer not found!";
+                  }
+              } else {
+                  // Display a message indicating that 'staff_id' is missing
+                  echo "Customer name is missing!";
+              }
+              ?>
+              </div> 
+
+              <script>
+                function validateForm() {
+                    // Get the values of form fields
+                    var name = document.getElementById("customer_name").value;
+                    var gender = document.getElementById("customer_gender").value;
+                    var phone = document.getElementById("customer_phoneno").value;
+                    var email = document.getElementById("customer_email").value;
+                    var dob = document.getElementById("customer_dob").value;
+
+                    // Check if any of the fields are empty
+                    if (name.trim() == '' || gender.trim() == '' || phone.trim() == '' || email.trim() == '' || dob.trim() == '') {
+                        alert("Please fill in all fields.");
+                        return false; // Prevent form submission
                     }
-                } else {
-                    // Display a message indicating that 'staff_id' is missing
-                    echo "Customer name is missing!";
+
+                    // If all fields are filled, allow form submission
+                    return true;
                 }
-                ?>
-                </div> 
 
-                <script>
-                    function validateForm() {
-                        // Get the values of form fields
-                        var name = document.getElementById("customer_name").value;
-                        var gender = document.getElementById("customer_gender").value;
-                        var phone = document.getElementById("customer_phoneno").value;
-                        var email = document.getElementById("customer_email").value;
-                        var dob = document.getElementById("customer_dob").value;
-
-                        // Check if any of the fields are empty
-                        if (name.trim() == '' || gender.trim() == '' || phone.trim() == '' || email.trim() == '' || dob.trim() == '') {
-                            alert("Please fill in all fields.");
-                            return false; // Prevent form submission
-                        }
-
-                        // If all fields are filled, allow form submission
-                        return true;
-                    }
-
-                    function closeForm() {
-                        // Redirect back to staffPage.php when the Close button is clicked
-                        window.location.href = "customerPage.php";
-                    }
-                </script>
+                function closeForm() {
+                    // Redirect back to staffPage.php when the Close button is clicked
+                    window.location.href = "customerPageStaff.php";
+                }
+            </script>
+  
         </body>
       </html>
     </span>

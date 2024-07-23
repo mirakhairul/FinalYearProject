@@ -16,10 +16,11 @@ if (!$con) {
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>DASHBOARD ADMIN</title>
+    <title>DASHBOARD STAFF</title>
     <link rel="stylesheet" href="stylef.css" />
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    
     <style>
         .container2nd {
             margin-left: 300px; /* Adjust this based on the width of your sidebar */
@@ -34,6 +35,7 @@ if (!$con) {
             display: fixed;
             justify-content: space-between;
         }
+
         .tableStaff {
             width: 70%; /* Adjust the width as needed */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -41,6 +43,7 @@ if (!$con) {
             overflow-y: scroll;
             margin-left: auto;
         }
+
         /* Hide scrollbar for WebKit browsers */
         .tableStaff::-webkit-scrollbar {
             display: none;
@@ -53,6 +56,7 @@ if (!$con) {
         }
     </style>
 </head>
+
 <body>
 <div class="container">
     <nav>
@@ -61,32 +65,23 @@ if (!$con) {
                 <img src="logocafe.jpeg" alt="">
                 <span class="nav-item">POS SYSTEM</span>
             </a></li>
-            <li><a href="admin.php">
+            <li><a href="staff.php">
                 <span class="nav-item">Dashboard</span>
             </a></li>
-            <li><a href="staffPage.php">
-                <span class="nav-item">Staffs</span>
-            </a></li>
-            <li><a href="customerPage.php">
+            <li><a href="customerPageStaff.php">
                 <span class="nav-item">Reg. Customers</span>
             </a></li>
-            <li><a href="categoryPage.php">
+            <li><a href="categoryPageStaff.php">
                 <span class="nav-item">Product Category</span>
             </a></li>
-            <li><a href="productPage.php">
+            <li><a href="productPageStaff.php">
                 <span class="nav-item">Products</span>
             </a></li>
             <li><a href="stock.php">
                 <span class="nav-item">Stock</span>
             </a></li>
-            <li><a href="orderPage.php">
+            <li><a href="orderPageStaff.php">
                 <span class="nav-item">Orders</span>
-            </a></li>
-            <li><a href="feedbackReviews.php">
-                <span class="nav-item">Customer Feedback</span>
-            </a></li>
-            <li><a href="salesReport.php">
-                <span class="nav-item">Sales Report</span>
             </a></li>
             <li><a href="homeadmin.html" class="logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -100,7 +95,7 @@ if (!$con) {
     <section class="main">
         <div class="main-top">
             <h1 style="margin-right:10px; margin-left:-30px; margin-top:-40px;">Stock</h1>
-            <p style="margin-right:1200px; margin-top:-40px;">admin</p>
+            <p style="margin-right:1200px; margin-top:-40px;">staff</p>
         </div>
     </section>
 
@@ -174,6 +169,7 @@ if (!$con) {
         </table>
     </div>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.update-stock-form button').forEach(button => {
@@ -211,50 +207,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
-updateStock.php
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-$con = mysqli_connect("localhost", "root", "", "akcafe");
-if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-if (isset($_POST['prod_id']) && isset($_POST['action'])) {
-    $prod_id = mysqli_real_escape_string($con, $_POST['prod_id']);
-    $action = $_POST['action'];
-
-    $result = mysqli_query($con, "SELECT stock FROM cafe_product WHERE prod_id='$prod_id'");
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        $current_stock = (int)$row['stock'];
-
-        if ($action == 'increase') {
-            $new_stock = $current_stock + 1;
-        } elseif ($action == 'decrease' && $current_stock > 0) {
-            $new_stock = $current_stock - 1;
-        } else {
-            $new_stock = $current_stock;
-        }
-
-        $update_query = "UPDATE cafe_product SET stock='$new_stock' WHERE prod_id='$prod_id'";
-        if (mysqli_query($con, $update_query)) {
-            echo $new_stock;
-        } else {
-            http_response_code(500);
-            echo "Error updating record: " . mysqli_error($con);
-        }
-    } else {
-        http_response_code(500);
-        echo "Error fetching stock: " . mysqli_error($con);
-    }
-} else {
-    http_response_code(400);
-    echo "Invalid request";
-}
-
-mysqli_close($con);
-?>

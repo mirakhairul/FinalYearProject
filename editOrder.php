@@ -30,7 +30,7 @@ if (isset($_POST['update_order'])) {
     $stmt->execute([$customer_name, $customer_phoneno, $customer_email, $payment_method, $update_id]);
 
     // Redirect back to the orderPage.php page after updating the order
-    header("Location: orderPage.php");
+    header("Location: orderPageStaff.php");
     exit();
 }
 ?>
@@ -113,61 +113,38 @@ if (isset($_POST['update_order'])) {
                 transform: translateY(0);
             }
         }
-        .container2nd {
-            margin-left: 280px; /* Adjust this based on the width of your sidebar */
-            padding: 40px;
-            padding-top: 2px;
-            overflow: hidden; /* Hide the scrollbar for the container */
-            position: fixed;
-            }
-            .tableStaff {
-            width: 70%; /* Adjust the width as needed */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: auto; /* Adjust height based on the header height */
-            margin-left: 30px;
-            }
     </style>
 </head>
-
 <body>
 <div class="container">
     <nav>
         <ul>
             <li><a href="logocafe.jpeg" class="logo">
-                    <img src="logocafe.jpeg" alt="">
-                    <span class="nav-item">POS SYSTEM</span>
-                </a></li>
-            <li><a href="admin.php">
-                    <span class="nav-item">Dashboard</span>
-                </a></li>
-            <li><a href="staffPage.php">
-                    <span class="nav-item">Staffs</span>
-                </a></li>
-            <li><a href="customerPage.php">
-                    <span class="nav-item">Reg. Customers</span>
+                <img src="logocafe.jpeg" alt="">
+                <span class="nav-item">POS SYSTEM</span>
             </a></li>
-            <li><a href="categoryPage.php">
+            <li><a href="staff.php">
+                <span class="nav-item">Dashboard</span>
+            </a></li>
+            <li><a href="customerPageStaff.php">
+                <span class="nav-item">Reg. Customers</span>
+            </a></li>
+            <li><a href="categoryPageStaff.php">
                 <span class="nav-item">Product Category</span>
             </a></li>
-            <li><a href="productPage.php">
-                    <span class="nav-item">Products</span>
+            <li><a href="productPageStaff.php">
+                <span class="nav-item">Products</span>
             </a></li>
             <li><a href="stock.php">
                 <span class="nav-item">Stock</span>
             </a></li>
-            <li><a href="orderPage.php">
-                    <span class="nav-item">Orders</span>
+            <li><a href="orderPageStaff.php">
+                <span class="nav-item">Orders</span>
             </a></li>
-            <li><a href="feedbackReviews.php">
-                <span class="nav-item">Customer Feedback</span>
-            </a></li>
-            <li><a href="salesReport.php">
-                    <span class="nav-item">Sales Report</span>
-                </a></li>
             <li><a href="homeadmin.html" class="logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="nav-item">Log out</span>
-                </a></li>
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log out</span>
+            </a></li>
         </ul>
     </nav>
 </div>
@@ -215,7 +192,7 @@ if (isset($_POST['update_order'])) {
 
                     <center>
                         <button class="btn-submit" type="submit" name="update_order"> Update </button>
-                        <a href="orderPage.php" class="btn-close-popup">Close</a>
+                        <a href="orderPageStaff.php" class="btn-close-popup">Close</a>
                     </center>
 
                 </form>
@@ -250,9 +227,6 @@ if (isset($_POST['update_order'])) {
         return true;
     }
 </script>
+
 </body>
 </html>
-
-
-
-

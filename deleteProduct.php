@@ -16,18 +16,17 @@ if (isset($_POST['prod_id'])) {
     // Execute the delete query
     if (mysqli_query($conn, $delete_query)) {
         // Redirect back to the product page after successful deletion
-        header("Location: productPage.php");
+        header("Location: productPageStaff.php");
         exit(); // Ensure script stops execution after redirection
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
     }
 } else {
     // Redirect back to the product page if no product ID is provided
-    header("Location: productPage.php");
+    header("Location: productPageStaff.php");
     exit(); // Ensure script stops execution after redirection
 }
 
 // Close the database connection
 mysqli_close($conn);
 ?>
-

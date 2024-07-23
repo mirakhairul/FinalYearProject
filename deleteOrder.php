@@ -16,18 +16,17 @@ if (isset($_POST['order_id'])) {
     // Execute the delete query
     if (mysqli_query($conn, $delete_query)) {
         // Redirect back to the order page after successful deletion
-        header("Location: orderPage.php");
+        header("Location: orderPageStaff.php");
         exit(); // Ensure script stops execution after redirection
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
     }
 } else {
     // Redirect back to the order page if no order_id is provided
-    header("Location: orderPage.php");
+    header("Location: orderPageStaff.php");
     exit(); // Ensure script stops execution after redirection
 }
 
 // Close the database connection
 mysqli_close($conn);
 ?>
-

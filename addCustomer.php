@@ -20,13 +20,12 @@ if (isset($_POST['add_customer'])) {
     $customer_email = $_POST['customer_email'];
     $customer_dob = $_POST["customer_dob"];
     
- 
     // Prepare SQL statement to insert new user into the database 
     $stmt = $pdo->prepare("INSERT INTO cafe_customer (customer_name, customer_gender, customer_phoneno, customer_email, customer_dob) VALUES (?, ?, ?, ?, ?)"); 
     $stmt->execute([$customer_name, $customer_gender, $customer_phoneno, $customer_email, $customer_dob]); 
  
     // Redirect back to the customerPage.php page after adding the user 
-    header("Location: customerPage.php"); 
+    header("Location: customerPageStaff.php"); 
     exit(); 
 } 
 ?>
@@ -110,63 +109,37 @@ if (isset($_POST['add_customer'])) {
                     transform: translateY(0); 
                 } 
             } 
-
-            .container2nd {
-            margin-left: 285px; /* Adjust this based on the width of your sidebar */
-            padding: 40px;
-            padding-top: 10px;
-            overflow: hidden; /* Hide the scrollbar for the container */
-            position: fixed;
-            }
-            
-            .tableStaff {
-            width: 70%; /* Adjust the width as needed */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: auto; /* Adjust height based on the header height */
-            margin-left: auto;
-            }
-
         </style> 
         </head>
         <body>
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href="logocafe.jpeg" class="logo">
-                            <img src="logocafe.jpeg" alt="">
-                            <span class="nav-item">POS SYSTEM</span>
-                          </a></li>
-                          <li><a href="admin.php">
-                            <span class="nav-item">Dashboard</span>
-                          </a></li>
-                          <li><a href="staffPage.php">
-                              <span class="nav-item">Staffs</span>
-                          </a></li>
-                          <li><a href="customerPage.php">
-                            <span class="nav-item">Reg. Customers</span>
-                          </a></li>
-                          <li><a href="categoryPage.php">
-                            <span class="nav-item">Product Category</span>
-                          </a></li>
-                          <li><a href="productPage.php">
-                            <span class="nav-item">Products</span>
-                          </a></li>
-                          <li><a href="stock.php">
-                            <span class="nav-item">Stock</span>
-                          </a></li>
-                          <li><a href="orderPage.php">
-                            <span class="nav-item">Orders</span>
-                          </a></li>
-                          <li><a href="feedbackReviews.php">
-                            <span class="nav-item">Customer Feedback</span>
-                          </a></li>
-                          <li><a href="salesReport.php">
-                            <span class="nav-item">Sales Report</span>
-                          </a></li>
-                          <li><a href="homeadmin.html" class="logout">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span class="nav-item">Log out</span>
-                          </a></li>
+                      <li><a href="logocafe.jpeg" class="logo">
+                        <img src="logocafe.jpeg" alt="">
+                        <span class="nav-item">POS SYSTEM</span>
+                      </a></li>
+                      <li><a href="staff.php">
+                        <span class="nav-item">Dashboard</span>
+                      </a></li>
+                      <li><a href="customerPageStaff.php">
+                        <span class="nav-item">Reg. Customers</span>
+                      </a></li>
+                      <li><a href="categoryPageStaff.php">
+                        <span class="nav-item">Product Category</span>
+                     </a></li>
+                      <li><a href="productPageStaff.php">
+                        <span class="nav-item">Products</span>
+                      </a></li>
+                      <li><a href="stock.php">
+                        <span class="nav-item">Stock</span>
+                     </a></li>
+                      <li><a href="orderPageStaff.php">
+                        <span class="nav-item">Orders</span>
+                      <li><a href="homeadmin.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                      </a></li>
                     </ul>
                   </nav>
                 </div>
@@ -195,36 +168,35 @@ if (isset($_POST['add_customer'])) {
                         <input class="form-input" type="date" id="customer_dob" name="customer_dob" required> 
 
                         <center><button class="btn-submit" type="submit" name="add_customer" onclick="togglePopup()"> Submit </button>
-                        <a href="customerPage.php" class="btn-close-popup">Close</a></center>
+                        <a href="customerPageStaff.php" class="btn-close-popup">Close</a></center>
                     </form> 
                 </div>
                 </div> 
 
                 <script>
-                    function validateForm() {
-                        // Get the values of form fields
-                        var name = document.getElementById("customer_name").value;
-                        var gender = document.getElementById("customer_gender").value;
-                        var phone = document.getElementById("customer_phoneno").value;
-                        var email = document.getElementById("customer_email").value;
-                        var dob = document.getElementById("customer_dob").value;
+                  function validateForm() {
+                      // Get the values of form fields
+                      var name = document.getElementById("customer_name").value;
+                      var gender = document.getElementById("customer_gender").value;
+                      var phone = document.getElementById("customer_phoneno").value;
+                      var email = document.getElementById("customer_email").value;
+                      var dob = document.getElementById("customer_dob").value;
 
-                        // Check if any of the fields are empty
-                        if (name.trim() == '' || gender.trim() == '' || phone.trim() == '' || email.trim() == '' || dob.trim() == '') {
-                            alert("Please fill in all fields.");
-                            return false; // Prevent form submission
-                        }
+                      // Check if any of the fields are empty
+                      if (name.trim() == '' || gender.trim() == '' || phone.trim() == '' || email.trim() == '' || dob.trim() == '') {
+                          alert("Please fill in all fields.");
+                          return false; // Prevent form submission
+                      }
 
-                        // If all fields are filled, allow form submission
-                        return true;
-                    }
+                      // If all fields are filled, allow form submission
+                      return true;
+                  }
 
-                    function closeForm() {
-                        // Redirect back to staffPage.php when the Close button is clicked
-                        window.location.href = "customerPage.php";
-                    }
-                </script>
-  
+                  function closeForm() {
+                      // Redirect back to staffPage.php when the Close button is clicked
+                      window.location.href = "customerPageStaff.php";
+                  }
+              </script>
         </body>
     </html>
 </span>

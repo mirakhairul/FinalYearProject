@@ -1,7 +1,10 @@
 <?php
+// Enable error reporting for debugging purposes
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+// Start the session
 session_start();
 
 // Connect to the database (replace dbname, username, password, and host with your actual database details)
@@ -15,6 +18,7 @@ if (!$pdo) {
 // Fetch categories from session
 $categories = isset($_SESSION["categories"]) ? $_SESSION["categories"] : [];
 
+// Handle form submission for adding a product
 if (isset($_POST['add_product'])) {
     // Fetch values from form inputs
     $prod_code = $_POST['prod_code'];
@@ -25,12 +29,14 @@ if (isset($_POST['add_product'])) {
     $itempic = $_FILES["img"]["name"];
     $extension = substr($itempic, strlen($itempic) - 4, strlen($itempic));
 
-    // Allowed extensions
+     // Allowed extensions for image files
     $allowed_extensions = array(".jpg", "jpeg", ".png", ".gif");
 
+    // Validate the image file extension
     if (!in_array($extension, $allowed_extensions)) {
         echo "<script>alert('Invalid format. Only jpg / jpeg / png / gif format allowed');</script>";
     } else {
+        // Generate a unique name for the image file and move it to the target directory
         $itempic = md5($itempic) . $extension;
         $target_directory = "uploads/"; // Relative path to the directory where you want to store the uploaded files
         $target_file = $target_directory . $itempic;
@@ -44,9 +50,10 @@ if (isset($_POST['add_product'])) {
                 $params = [$prod_code, $prod_name, $prod_desc, $prod_category, $prod_price, $target_file, 0]; // Default stock value
             }
 
+            // Execute the SQL statement and check for success
             if ($stmt->execute($params)) {
                 echo "<script>alert('Food Item has been added.');</script>";
-                header("Location: productPage.php");
+                header("Location: productPageStaff.php");
                 exit();
             } else {
                 echo "<script>alert('Failed to add Food Item.');</script>";
@@ -66,6 +73,7 @@ if (isset($_POST['add_product'])) {
     <link rel="stylesheet" href="stylef.css" />
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    
     <style> 
         .form-container { 
             display: flex; 
@@ -135,22 +143,24 @@ if (isset($_POST['add_product'])) {
                 transform: translateY(0); 
             } 
         } 
+
         .container2nd {
             margin-left: 280px; /* Adjust this based on the width of your sidebar */
             padding: 40px;
             padding-top: 2px;
             overflow: hidden; /* Hide the scrollbar for the container */
             position: fixed;
-            }
-            
-            .tableStaff {
+        }
+
+        .tableStaff {
             width: 70%; /* Adjust the width as needed */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             height: auto; /* Adjust height based on the header height */
             margin-left: auto;
-            }
+        }
     </style> 
 </head>
+
 <body>
     <div class="container">
         <nav>
@@ -159,32 +169,23 @@ if (isset($_POST['add_product'])) {
                     <img src="logocafe.jpeg" alt="">
                     <span class="nav-item">POS SYSTEM</span>
                 </a></li>
-                <li><a href="admin.php">
+                <li><a href="staff.php">
                     <span class="nav-item">Dashboard</span>
                 </a></li>
-                <li><a href="staffPage.php">
-                    <span class="nav-item">Staffs</span>
-                </a></li>
-                <li><a href="customerPage.php">
+                <li><a href="customerPageStaff.php">
                     <span class="nav-item">Reg. Customers</span>
                 </a></li>
-                <li><a href="categoryPage.php">
+                <li><a href="categoryPageStaff.php">
                     <span class="nav-item">Product Category</span>
                 </a></li>
-                <li><a href="productPage.php">
+                <li><a href="productPageStaff.php">
                     <span class="nav-item">Products</span>
                 </a></li>
                 <li><a href="stock.php">
                 <span class="nav-item">Stock</span>
                 </a></li>
-                <li><a href="orderPage.php">
+                <li><a href="orderPageStaff.php">
                     <span class="nav-item">Orders</span>
-                </a></li>
-                <li><a href="feedbackReviews.php">
-                    <span class="nav-item">Customer Feedback</span>
-                </a></li>
-                <li><a href="salesReport.php">
-                    <span class="nav-item">Sales Report</span>
                 </a></li>
                 <li><a href="homeadmin.html" class="logout">
                     <i class="fas fa-sign-out-alt"></i>
@@ -233,7 +234,7 @@ if (isset($_POST['add_product'])) {
 
                 <center>
                     <button class="btn-submit" type="submit" name="add_product">Submit</button>
-                    <a href="productPage.php" class="btn-close-popup">Close</a>
+                    <a href="productPageStaff.php" class="btn-close-popup">Close</a>
                 </center>
             </form> 
         </div>

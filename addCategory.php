@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-session_start();
+session_start(); // Start the session to use session variables
 
 // Connect to the database (replace dbname, username, password, and host with your actual database details) 
 $pdo = new PDO('mysql:host=localhost;dbname=akcafe', 'root', ''); 
@@ -21,7 +21,7 @@ if (isset($_POST['add_category'])) {
     $stmt->execute([$prod_category]); 
  
     // Redirect back to the viewadmin.php page after adding the user 
-    header("Location: categoryPage.php"); 
+    header("Location: categoryPageStaff.php"); 
     exit(); 
 } 
 ?>
@@ -105,22 +105,9 @@ if (isset($_POST['add_category'])) {
                     transform: translateY(0); 
                 } 
             } 
-            .container2nd {
-            margin-left: 285px; /* Adjust this based on the width of your sidebar */
-            padding: 40px;
-            overflow: hidden; /* Hide the scrollbar for the container */
-            position: fixed;
-            }
-            
-            .tableStaff {
-            width: 70%; /* Adjust the width as needed */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: auto; /* Adjust height based on the header height */
-            margin-left: auto;
-            }
-
         </style> 
         </head>
+
         <body>
             <div class="container">
                 <nav>
@@ -128,38 +115,29 @@ if (isset($_POST['add_category'])) {
                     <li><a href="logocafe.jpeg" class="logo">
                     <img src="logocafe.jpeg" alt="">
                     <span class="nav-item">POS SYSTEM</span>
-                    </a></li>
-                    <li><a href="admin.php">
-                        <span class="nav-item">Dashboard</span>
-                    </a></li>
-                    <li><a href="staffPage.php">
-                        <span class="nav-item">Staffs</span>
-                    </a></li>
-                    <li><a href="customerPage.php">
-                        <span class="nav-item">Reg. Customers</span>
-                    </a></li>
-                    <li><a href="categoryPage.php">
-                        <span class="nav-item">Product Category</span>
-                    </a></li>
-                    <li><a href="productPage.php">
-                        <span class="nav-item">Products</span>
-                    </a></li>
-                    <li><a href="stock.php">
-                        <span class="nav-item">Stock</span>
-                    </a></li>
-                    <li><a href="orderPage.php">
-                        <span class="nav-item">Orders</span>
-                    </a></li>
-                    <li><a href="feedbackReviews.php">
-                        <span class="nav-item">Customer Feedback</span>
-                    </a></li>
-                    <li><a href="salesReport.php">
-                        <span class="nav-item">Sales Report</span>
-                    </a></li>
-                    <li><a href="homeadmin.html" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
-                    </a></li>
+                  </a></li>
+                  <li><a href="staff.php">
+                    <span class="nav-item">Dashboard</span>
+                  </a></li>
+                  <li><a href="customerPageStaff.php">
+                    <span class="nav-item">Reg. Customers</span>
+                  </a></li>
+                  <li><a href="categoryPageStaff.php">
+                    <span class="nav-item">Product Category</span>
+                  </a></li>
+                  <li><a href="productPageStaff.php">
+                    <span class="nav-item">Products</span>
+                  </a></li>
+                  <li><a href="stock.php">
+                    <span class="nav-item">Stock</span>
+                  </a></li>
+                  <li><a href="orderPageStaff.php">
+                    <span class="nav-item">Orders</span>
+                  </a></li>
+                  <li><a href="homeadmin.html" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Log out</span>
+                  </a></li>
                     </ul>
                   </nav>
                 </div>
@@ -167,7 +145,7 @@ if (isset($_POST['add_category'])) {
                 <div class="container2nd">
                 <section class="main">
                    <br>
-                   <h2 style="margin-right:10px; margin-left:-40px; margin-top:-40px;">Add New Category</h2>
+                   <h2>Add New Category</h2>
                 </section>
            
                 <div class="tableStaff">
@@ -176,7 +154,7 @@ if (isset($_POST['add_category'])) {
                         <input class="form-input" type="text" id="category_name" name="category_name"> 
 
                         <center><button class="btn-submit" type="submit" name="add_category" onclick="togglePopup()"> Submit </button>
-                        <a href="categoryPage.php" class="btn-close-popup">Close</a></center>
+                        <a href="categoryPageStaff.php" class="btn-close-popup">Close</a></center>
                     </form> 
                 
                 </div>
@@ -199,10 +177,9 @@ if (isset($_POST['add_category'])) {
 
                     function closeForm() {
                         // Redirect back to staffPage.php when the Close button is clicked
-                        window.location.href = "categoryPage.php";
+                        window.location.href = "categoryPageStaff.php";
                     }
                 </script>
-  
-        </body>
-      </html>
-    </span>
+</body>
+</html>
+</span>

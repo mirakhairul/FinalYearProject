@@ -12,6 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $pdo->prepare('UPDATE cafe_product SET availability = ? WHERE prod_id = ?');
     $stmt->execute([$availability, $prod_id]);
 
-    header('Location: productPage.php');
+    header('Location: productPageStaff.php');
 }
 ?>

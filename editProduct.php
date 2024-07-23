@@ -66,11 +66,10 @@ if (isset($_POST['update_product'])) {
 }
 
 // Redirect to product page after update
-header("Location: productPage.php");
+header("Location: productPageStaff.php");
 exit();
 }
 ?>
-
 <span style="font-family: verdana, geneva, sans-serif;">
   <!DOCTYPE html>
       <html lang="en">
@@ -150,20 +149,6 @@ exit();
                   transform: translateY(0); 
               } 
           } 
-          .container2nd {
-            margin-left: 280px; /* Adjust this based on the width of your sidebar */
-            margin-top: 6px; 
-            padding: 40px;
-            padding-top: 2px;
-            overflow: hidden; /* Hide the scrollbar for the container */
-            position: fixed;
-            }
-            .tableStaff {
-            width: 70%; /* Adjust the width as needed */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: auto; /* Adjust height based on the header height */
-            margin-left: 30px;
-            }
 
       </style> 
       </head>
@@ -175,32 +160,23 @@ exit();
                       <img src="logocafe.jpeg" alt="">
                       <span class="nav-item">POS SYSTEM</span>
                     </a></li>
-                    <li><a href="admin.php">
+                    <li><a href="staff.php">
                       <span class="nav-item">Dashboard</span>
                     </a></li>
-                    <li><a href="staffPage.php">
-                        <span class="nav-item">Staffs</span>
-                    </a></li>
-                    <li><a href="customerPage.php">
+                    <li><a href="customerPageStaff.php">
                       <span class="nav-item">Reg. Customers</span>
                     </a></li>
-                    <li><a href="categoryPage.php">
+                    <li><a href="categoryPageStaff.php">
                       <span class="nav-item">Product Category</span>
                     </a></li>
-                    <li><a href="productPage.php">
+                    <li><a href="productPageStaff.php">
                       <span class="nav-item">Products</span>
                     </a></li>
                     <li><a href="stock.php">
                         <span class="nav-item">Stock</span>
                     </a></li>
-                    <li><a href="orderPage.php">
+                    <li><a href="orderPageStaff.php">
                       <span class="nav-item">Orders</span>
-                    </a></li>
-                    <li><a href="feedbackReviews.php">
-                        <span class="nav-item">Customer Feedback</span>
-                    </a></li>
-                    <li><a href="salesReport.php">
-                      <span class="nav-item">Sales Report</span>
                     </a></li>
                     <li><a href="homeadmin.html" class="logout">
                       <i class="fas fa-sign-out-alt"></i>
@@ -231,7 +207,7 @@ exit();
                   if($product) {
               ?>
          
-              <div class="tableStaff">
+         <div class="tableStaff">
                 <form class="form-container" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                       
                       <label class="form-label" for="code">Product Code:</label> 
@@ -263,7 +239,7 @@ exit();
                       <input type="hidden" name="prod_id" value="<?php echo $prod_id; ?>"> 
 
                       <center><button class="btn-submit" type="submit" name="update_product" onclick="togglePopup()"> Update </button>
-                      <a href="productPage.php" class="btn-close-popup">Close</a></center>
+                      <a href="productPageStaff.php" class="btn-close-popup">Close</a></center>
                   </form> 
               </div>
 
