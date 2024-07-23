@@ -1,0 +1,597 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+  }
+  .wrapper{
+    background: #000000;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .wrapper nav{
+    position: relative;
+    max-width: calc(100% - 200px);
+    margin: 0 auto;
+    height: 70px;
+    display:flex;
+    justify-content: space-around;
+    float: left;
+    padding-left: 20px;
+    align-items: center;
+  }
+
+  .end-wrapper{
+    width: 100%;
+  }
+
+  .end-wrapper nav{
+    position: relative;
+    float: right;
+    font-size: 30px;
+    color: whitesmoke;
+    margin: 0 auto;
+    display:flex;
+    height: 70px;
+    align-items: center; 
+    padding-right: 20px;
+    gap: 10px;
+  }
+
+  nav .content .end-wrapper label,
+  nav .content{
+    display: flex;
+    align-items: center;
+  }
+  nav .content .links{
+    margin-left: 80px;
+    display: flex;
+  }
+  .content .logo a{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .content .links li{
+    list-style: none;
+    line-height: 70px;
+  }
+  .content .end-wrapper label,
+  .content .links li a,
+  .content .links li label{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .content .links li label{
+    display: none;
+  }
+  .content .end-wrapper label,
+  .content .links li a i:hover,
+  .content .links li i label:hover{
+    background: #323c4e;
+  }
+
+.wrapper .menu-icon{
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 100px;
+  width: 70px;
+  text-align: center;
+}
+.wrapper .menu-icon{
+  display: none;
+}
+
+.wrapper input[type="checkbox"]{
+  display: none;
+}
+
+/* Dropdown Menu code start */
+.content .links ul{
+    position: absolute;
+    background: #171c24;
+    top: 80px;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .content .links li i:hover > ul{
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+  }
+  .content .links ul li a {
+    display: block;
+    width: 100%;
+    line-height: 30px;
+    border-radius: 0px!important;
+  }
+  .content .links ul ul {
+    position: absolute;
+    top: 0;
+    right: calc(-100% + 8px);
+  }
+  .content .links ul li {
+    position: relative;
+  }
+  .content .links ul li:hover ul{
+    top: 0;
+  }
+
+.container{
+  color: whitesmoke;
+  display: flex;
+  flex-wrap: nowrap; 
+  margin: 0 auto;  
+  width: 80%;  
+  align-items: center;
+
+}
+
+h3{
+  scroll-margin-top: 100px;
+}
+
+.w3-content h2{
+  font-size: 25px;
+}
+
+.category, .category h2{
+  flex: 1; /* Make each category take up equal space */
+  margin: 10px;  /* Add spacing between categories */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ads{
+  padding:90px 0.5px;
+}
+
+.ads h2 {
+  margin-top: 50px;
+  font-size: 25px;
+  text-decoration-line: underline;
+  color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.ads .container{
+  text-decoration-line: none;
+}
+
+.box {
+  display: inline-block; 
+  justify-content: center;
+  margin: 1em;
+  padding: 20px; 
+  background-color: white;
+  box-sizing: border-box; 
+  width: calc(100%); 
+  text-align: center;
+  color: #000000;
+  box-shadow: hover 0px 8px 16px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  cursor: pointer;
+  width: 250px;
+  height: 100px;
+}
+
+.gallery {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-auto-flow:dense;
+  gap: 8px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  padding: 0px 50px 75px 50px;
+
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+
+}
+
+img.four-grid-cells {
+  grid-row: span 2 / auto;
+  grid-column: span 2 / auto;
+}
+
+img.wide-image {
+  grid-column: span 2 / auto;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width:95%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 0 33.33%; /* Set width to 1/3 of container */
+  padding: 10px; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Define 3 columns */
+  grid-gap: 10px;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: calc(100vh - 5rem); /* Full-height */
+  width: 170px; /* Set the width of the sidebar */
+  position:fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: -20; /* Stay on top */
+  top: 70px; /* Stay at the top */
+  left: 0;
+  background-color: #D9D9D9;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 15px;
+  padding-bottom: 100px;
+  min-height: 100vh;
+  flex-direction: column;
+  
+}
+
+/* The navigation menu links */
+.sidenav b {
+  text-decoration: none;
+  font-size: 16px;
+  color:#000000;
+  display: block;
+}
+
+.sidenav a {
+  padding: 2px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  color:#000000;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.product-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 80%;
+  grid-template-columns: repeat(5, 1fr); /* Repeat the column pattern 5 times */
+  box-sizing: border-box;
+}
+
+.product{
+  margin: 8px;
+  padding: 10px;
+  background-color: #D9D9D9;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 18%;
+  height: 22%;
+  overflow: hidden;
+  box-sizing: border-box;
+  scroll-margin-block:inherit;
+}
+
+.product img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  aspect-ratio: 1/1;
+}
+
+.product-details {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  row-gap: 10px;
+  box-sizing: border-box;
+  object-fit:cover;
+}
+
+.product-details button {
+  background-color:#000000;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+ .socialIcons,
+ .socialIcons a i{
+  display: flex;
+  justify-content: center;
+  margin: 8px;
+  border-radius: 50%;
+  font-size: 1.5em;
+  opacity: 0.9;
+  color: #ffffff;
+ }
+
+ .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  font-size:8px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  opacity: 0.8;
+}
+ 
+/* Responsive code start */
+
+/* For Desktop View */
+@media screen and (max-width: 1024px) and (min-width: 800px) {
+  .content .logo a{
+    font-size: 22px;
+  }
+  .wrapper nav{
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  nav .content .links{
+    margin-left: 30px;
+  }
+  .content .links li a{
+    padding: 8px 13px;
+  }
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px) 
+    and (max-device-width: 1024px) {
+      .slideshow-container{
+        flex-direction: column;
+        display: flex;
+      }
+      .wrapper nav .content {
+        display:flexbox; /* Show navigation content on tablets */
+      }
+      .content .logo a {
+        font-size: 18px;
+        
+      }
+      .content .end-wrapper label,
+      .content .links li a,
+      .content .links li label{
+        font-size: 11px;
+      }
+      .end-wrapper nav {
+        display: flex; /* Show cart and profile icons on tablets */
+      }
+      
+}
+
+@media screen and (max-width: 900px){
+  .wrapper .menu-icon{
+    display: block;
+  }
+  .wrapper #show-menu:checked ~ .menu-icon i::before{
+    content: "\f00d";
+  }
+  nav .content .links{
+    display: block;
+    position: fixed;
+    background: #1a1818;
+    height: 100%;
+    width: 100%;
+    top: 70px;
+    left: -100%;
+    margin-left: 0;
+    max-width: 350px;
+    overflow-y: auto;
+    padding-bottom: 100px;
+    transition: all 0.3s ease;
+    opacity: 80%;
+  }
+  nav #show-menu:checked ~ .content .links{
+    left: 0%;
+  }
+  .content .links li{
+    margin: 15px 20px;
+  }
+  .content .links li a,
+  .content .links li label{
+    line-height: 40px;
+    font-size: 20px;
+    display: block;
+    padding: 8px 18px;
+    cursor: pointer;
+  }
+  .content .links li a.desktop-link{
+    display: none;
+  }
+
+  /* dropdown responsive code start */
+  .content .links ul,
+  .content .links ul ul{
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+    max-height: 0px;
+    overflow: hidden;
+  }
+  .content .links #show-features:checked ~ ul,
+  .content .links #show-services:checked ~ ul,
+  .content .links #show-items:checked ~ ul{
+    max-height: 100vh;
+  }
+  .content .links ul li{
+    margin: 7px 20px;
+  }
+  .content .links ul li a{
+    font-size: 18px;
+    line-height: 30px;
+    border-radius: 5px!important;
+  }
+  .logo a{
+    font-size: 18px;
+  }
+  .slideshow-container{
+    flex-direction: column;
+    display: flex;
+  }
+  .w3-content h2{
+    font-size: 20px;
+  }
+  .sidenav{
+    display: none;
+  }
+ 
+
+  /* Style the dropdown button (each sidenav category will become a button) */
+  .dropdown .dropdown-btn { /* Targets only the first link within each .dropdown container */
+    position:relative;
+    display:block;
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    color: white; /* Text color */
+    padding: 8px 16px; /* Padding for button */
+    background-color: inherit; /* Inherit the background color of the parent container */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointed finger cursor on hover */
+  }
+
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* Keep the dropdown content on top of other elements */
+    left: 50%;
+    transform: translateX(-50%); /* Center the dropdown horizontally */
+    bottom: 0;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change background color of links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+
+}
+
+
+
+
+@media screen and (max-width: 450px){
+  .wrapper nav{
+    padding: 0 10px;
+  }
+  .content .logo a{
+    font-size: 12px;
+    align-content: center;
+  }
+  .slideshow-container{
+    flex-direction: column;
+    display: flex;
+  }
+  .w3-content h2{
+    font-size: 15px;
+  }
+  
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 0; /* Sit on top */
+  left: 0;
+  width: 40%; /* Full width */
+  height: 50%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 10px;
+  margin-left: 30%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 0 auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position:absolute;
+  right: 10px;
+  top: 0;
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.preferences-form-actions {
+  text-align: center;
+  padding-top: 250px;
+}
+
+.save-btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  margin-bottom: 20px;
+}
+
+.preferences-form-container {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
